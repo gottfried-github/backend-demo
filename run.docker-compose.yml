@@ -2,7 +2,7 @@ services:
     base:
         image: mongo
         volumes: 
-            - ../data:/data/db
+            - ./data:/data/db
             - .:/app
         ports: 
             - 27017:27017
