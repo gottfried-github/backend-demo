@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "strict": true,
-    "module": "ES2020",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "esModuleInterop": true,
     "allowJs": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
