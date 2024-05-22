@@ -14,3 +14,10 @@ async function signup() {
   const resBody = await res.json()
   console.log('signup, response:', resBody)
 }
+
+async function getPosts() {
+  const res = await fetch('/api/posts')
+
+  const resBody = await res.json()
+  console.log('getPosts, response:', resBody)
+}

@@ -10,7 +10,7 @@ const PORT = parseInt(process.env.PORT as string, 10)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 async function main() {
-  // connect to databases
+  // connect to database
   await mongoose.connect(
     `mongodb://${process.env.APP_DB_USER}:${process.env.APP_DB_PASS}@${process.env.NET_NAME}/${process.env.APP_DB_NAME}`
   )

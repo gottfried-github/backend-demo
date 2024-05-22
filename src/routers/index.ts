@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 
 import middlewareAuth from '../middleware/auth.js'
 import auth from './public/auth.js'
@@ -8,8 +9,9 @@ import posts from './secure/posts.js'
 
 const router = Router()
 const _bodyParser = bodyParser.json()
+const _cookieParser = cookieParser()
 
-router.use(_bodyParser)
+router.use(_cookieParser, _bodyParser)
 router.use('/auth', auth)
 router.use('/users', middlewareAuth, users)
 router.use('/posts', middlewareAuth, posts)
