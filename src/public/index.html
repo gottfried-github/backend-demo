@@ -3,10 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/index.css">
   <title>Pecode App</title>
 </head>
 <body>
-  Hello, Pecode
+  <main>
+    <h1>Hello, Pecode</h1>
+    <p>Click around and see console logs and network tab</p>
+
+    <h2>Sign up</h2>
+    <form id='signup'>
+      <input type='text' name='name' id='signup__username' placeholder="User Name">
+      <input type='email' name='email' id='signup__email' placeholder='Email'>
+      <input type="password" name='password' id="signup__password" placeholder="Password">
+      <button type="submit">Sign Up</button>
+    </form>
+  
+    <h2>Sign in</h2>
+    <form id='signin'>
+      <input type='email' name='email' id='signin__email' placeholder='Email'>
+      <input type="password" name='password' id="signin__password" placeholder="Password">
+      <button type="submit">Sign In</button>
+    </form>
+  
+    <h2>Create Post</h2>
+    <form id="post">
+      <textarea name="body" id="post__body" rows="10" placeholder="Post Body"></textarea>
+      <button type="submit">Create Post</button>
+    </form>
+  
+    <h2>Get Posts</h2>
+    <button id="get-posts">Get Posts</button>
+  
+    <h2>Get User</h2>
+    <button id="get-user">Get User</button>
+  </main>
 
   <script src="/index.js"></script>
 </body>
