@@ -15,6 +15,20 @@ async function signup() {
   console.log('signup, response:', resBody)
 }
 
+async function signin() {
+  const res = await fetch(`/api/auth/signin`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: 'email00',
+      password: 'password00',
+    }),
+  })
+
+  const resBody = await res.json()
+  console.log('signin, response:', resBody)
+}
+
 async function getPosts() {
   const res = await fetch('/api/posts')
 
