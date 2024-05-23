@@ -10,8 +10,7 @@ const get = async (req: Request, res: Response, next: NextFunction) => {
 
     res.json({ message: 'found posts', data: posts })
   } catch (e) {
-    res.status(500)
-    res.json({ message: 'internal error' })
+    next(e)
   }
 }
 

@@ -17,8 +17,7 @@ const create = async (req: Request, res: Response, next: NextFunction) => {
       return res.json({ message: 'validation error', error: e })
     }
 
-    res.status(500)
-    res.json({ message: 'internal error' })
+    next(e)
   }
 }
 

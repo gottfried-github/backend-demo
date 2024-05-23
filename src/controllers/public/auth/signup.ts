@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken'
 
 import UserService from '../../../services/user.js'
-import { Request, Response } from 'express'
+import { Request, Response, NextFunction } from 'express'
 
-const signup = async (req: Request, res: Response) => {
+const signup = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = await UserService.create(req.body)
 
@@ -32,8 +32,7 @@ const signup = async (req: Request, res: Response) => {
       },
     })
   } catch (e) {
-    res.status(500)
-    res.json(e)
+    next(e)
   }
 }
 

@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken'
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 
 import UserService from '../../../services/user.js'
 
-const signin = async (req: Request, res: Response) => {
+const signin = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = await UserService.getAndValidate(req.body)
 
@@ -42,10 +42,7 @@ const signin = async (req: Request, res: Response) => {
       },
     })
   } catch (e) {
-    console.log('signin, error:', e)
-
-    res.status(500)
-    return res.send({ message: 'internal error' })
+    next(e)
   }
 }
 

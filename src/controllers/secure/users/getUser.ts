@@ -1,8 +1,8 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 
 import User from '../../../models/user.js'
 
-export default async (req: Request, res: Response) => {
+export default async (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = await User.findById(req.params.id, { password: 0 })
 
@@ -13,9 +13,6 @@ export default async (req: Request, res: Response) => {
 
     res.json({ message: 'user found', data: user })
   } catch (e) {
-    console.log('getUser, e:', e)
-
-    res.status(500)
-    res.json({ message: 'internal error' })
+    next(e)
   }
 }
