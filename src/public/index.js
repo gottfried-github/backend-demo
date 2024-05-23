@@ -1,5 +1,3 @@
-console.log('Hello, pecode')
-
 async function signup() {
   const res = await fetch(`/api/auth/signup`, {
     method: 'POST',
@@ -48,3 +46,5 @@ async function getPosts() {
   const resBody = await res.json()
   console.log('getPosts, response:', resBody)
 }
+
+console.log('Hello, pecode')
