@@ -1,3 +1,5 @@
+const state = {}
+
 async function signup() {
   const res = await fetch(`/api/auth/signup`, {
     method: 'POST',
@@ -11,6 +13,8 @@ async function signup() {
 
   const resBody = await res.json()
   console.log('signup, response:', resBody)
+
+  state.user = resBody.data
 }
 
 async function signin() {
@@ -25,6 +29,17 @@ async function signin() {
 
   const resBody = await res.json()
   console.log('signin, response:', resBody)
+
+  state.user = resBody.data
+}
+
+async function getUser() {
+  if (!state.user) throw new Error('user data is not present')
+
+  const res = await fetch(`/api/users/${state.user.id}`)
+
+  const resBody = await res.json()
+  console.log('get user, response:', resBody)
 }
 
 async function createPost() {

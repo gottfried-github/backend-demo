@@ -33,7 +33,14 @@ const signin = async (req: Request, res: Response) => {
     })
 
     res.status(200)
-    res.json({ message: 'signed in successfully' })
+    res.json({
+      message: 'signed in successfully',
+      data: {
+        id: user._id,
+        email: user.email,
+        name: user.name,
+      },
+    })
   } catch (e) {
     console.log('signin, error:', e)
 

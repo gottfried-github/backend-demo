@@ -23,7 +23,14 @@ const signup = async (req: Request, res: Response) => {
     })
 
     res.status(201)
-    res.json({ message: 'signed up successfully' })
+    res.json({
+      message: 'signed up successfully',
+      data: {
+        id: user._id,
+        email: user.email,
+        name: user.name,
+      },
+    })
   } catch (e) {
     res.status(500)
     res.json(e)
